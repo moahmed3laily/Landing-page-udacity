@@ -66,18 +66,18 @@ const sectionActivaition =() =>{
 // listen to scrolling
 window.addEventListener("scroll", sectionActivaition)
 // Scroll to anchor ID 
- const scrolling = () =>{
-     const links = document.querySelectorAll(".navbar__menu a");
+ const goToSection = () =>{
+    sectionsList.forEach(section =>{
+        section.addEventListener('click', event =>{
+            event.preventDefault;
+            const sectionId = section.id;
+            document.getElementById(event.target.dataset.sectionId).scrollIntoView({behavior: "smooth"});
+            addActive(event.target.dataset.sectionId);
+        })
+    })
+} 
 
-     links.forEach(link =>{
-         link.addEventListener('click', ()=>{
-             for(i =0; i<sectionsList; i++){
-                 sectionsList[i].addEventListener('click', sectionScroll(link))
-             }
-         })
-     })
- }
-
+goToSection();
 
 
 
